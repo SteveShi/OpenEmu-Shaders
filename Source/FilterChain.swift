@@ -25,7 +25,7 @@
 import Foundation
 import Metal
 import MetalKit
-@_implementationOnly import os.log
+import os.log
 
 // swiftlint:disable type_body_length
 public final class FilterChain {

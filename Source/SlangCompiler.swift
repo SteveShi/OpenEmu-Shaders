@@ -22,10 +22,10 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-@_implementationOnly import CGLSLang
-@_implementationOnly import CSPIRVTools
+import CGLSLang
+import CSPIRVTools
 import Foundation
-@_implementationOnly import os.log
+import os.log
 
 var initialized: Bool = {
     glslang_initialize_process()

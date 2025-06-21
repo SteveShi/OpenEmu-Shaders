@@ -7,8 +7,8 @@
 //
 
 import Foundation
-@_implementationOnly import os.log
-@_implementationOnly import QuartzCore
+import os.log
+import QuartzCore
 
 public extension FilterChain {
     func setShader(fromURL url: URL, options shaderOptions: ShaderCompilerOptions) throws {

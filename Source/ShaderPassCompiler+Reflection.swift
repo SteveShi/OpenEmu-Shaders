@@ -22,9 +22,9 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-@_implementationOnly import CSPIRVCross
+import CSPIRVCross
 import Foundation
-@_implementationOnly import os.log
+import os.log
 
 extension ShaderPassCompiler {
     func makeSymbols() -> ShaderSymbols? {
