@@ -27,8 +27,10 @@ public enum ZipCompiledShaderContainer {
             try FileManager.default.removeItem(at: path)
         }
         
-        guard let ar = Archive(url: path, accessMode: .create)
-        else {
+        let ar: Archive
+        do {
+            ar = try Archive(url: path, accessMode: .create)
+        } catch {
             return
         }
         
@@ -56,19 +58,23 @@ public enum ZipCompiledShaderContainer {
             guard FileManager.default.fileExists(atPath: url.path) else {
                 throw Error.pathNotExists
             }
-            if let archive = Archive(url: url, accessMode: .read) {
-                try self.init(archive: archive)
-            } else {
+            let archive: Archive
+            do {
+                archive = try Archive(url: url, accessMode: .read)
+            } catch {
                 throw Error.invalidArchive
             }
+            try self.init(archive: archive)
         }
         
         public convenience init(data: Data) throws {
-            if let archive = Archive(data: data, accessMode: .read) {
-                try self.init(archive: archive)
-            } else {
+            let archive: Archive
+            do {
+                archive = try Archive(data: data, accessMode: .read)
+            } catch {
                 throw Error.invalidArchive
             }
+            try self.init(archive: archive)
         }
         
         private init(archive: Archive) throws {
