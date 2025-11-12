@@ -29,7 +29,9 @@ import OpenEmuShaders
 
 extension OEShaders {
     enum LanguageVersion: String, Codable, ExpressibleByArgument {
-        // case v30 = "3.0"
+        case v32 = "3.2"
+        case v31 = "3.1"
+        case v30 = "3.0"
         case v24 = "2.4"
         case v23 = "2.3"
         case v22 = "2.2"
@@ -71,6 +73,27 @@ extension OEShaders {
             let options = ShaderCompilerOptions()
             options.isCacheDisabled = cache == false
             switch languageVersion {
+            case .v32:
+                if #available(macOS 15.0, *) {
+                    options.languageVersion = .version3_0
+                } else {
+                    print("Unsupported Metal version. Please use macOS 15.0 or later.")
+                    fallthrough
+                }
+            case .v31:
+                if #available(macOS 14.0, *) {
+                    options.languageVersion = .version3_0
+                } else {
+                    print("Unsupported Metal version. Please use macOS 14.0 or later.")
+                    fallthrough
+                }
+            case .v30:
+                if #available(macOS 13.0, *) {
+                    options.languageVersion = .version3_0
+                } else {
+                    print("Unsupported Metal version. Please use macOS 13.0 or later.")
+                    fallthrough
+                }
             case .v24:
                 options.languageVersion = .version2_4
             case .v23:

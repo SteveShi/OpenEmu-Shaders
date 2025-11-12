@@ -66,7 +66,7 @@ public enum ZipCompiledShaderContainer {
             }
             try self.init(archive: archive)
         }
-        
+
         public convenience init(data: Data) throws {
             let archive: Archive
             do {

@@ -108,6 +108,8 @@ public enum Compiled {
         init(_ mtl: MTLLanguageVersion) throws {
             switch mtl {
 #if swift(>=5.9)
+            case .version3_2:
+                self = .version2_4
             case .version3_1:
                 self = .version2_4
 #endif

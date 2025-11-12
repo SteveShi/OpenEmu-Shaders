@@ -619,7 +619,7 @@ class ShaderPassReflection {
 extension ShaderPassReflection: CustomDebugStringConvertible {
     var debugDescription: String {
         var desc = ""
-        desc.append("\n")
+        desc.append(String(format: "Pass #%d\n", passNumber))
         desc.append("  → textures:\n")
         
         for sem in Compiled.ShaderTextureSemantic.allCases {
