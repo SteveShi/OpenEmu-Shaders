@@ -875,7 +875,7 @@ public final class FilterChain {
                 ca.destinationRGBBlendFactor = .oneMinusSourceAlpha
             }
             
-            psd.sampleCount = 1
+            psd.rasterSampleCount = 1
             psd.vertexDescriptor = vd
             
             let options = MTLCompileOptions()
